@@ -1,13 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300&display=swap");
+
+:root {
+  --primary-color: rgba(250, 235, 215, 0.529);
+  --border: rgb(245, 244, 244);
+  --shadow: rgb(239, 238, 238);
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Merriweather Sans", sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.navbar-container {
+  background: rgba(106, 106, 106, 0);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+#navbar {
+  font-family: "Merriweather Sans", sans-serif;
+  text-transform: uppercase;
+  position: absolute;
+  right: 240px;
+  top: 30px;
+}
+
+#navbar .navlink {
+  list-style: none;
+  text-decoration: none;
+  padding: 1rem;
+  color: rgb(19, 122, 122);
+}
+#container {
+  padding-top: 5rem;
+}
+
+#products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 2rem 15rem;
+}
+
+#products li {
+  font-family: "Merriweather Sans", sans-serif;
+  padding: 20px;
+  list-style-type: none;
+  border: 1px solid var(--border);
+  margin: 10px;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+}
+#products li:hover {
+  box-shadow: 2px 5px 10px var(--shadow);
+}
+
+.productCard img {
+  object-fit: cover;
+  image-rendering: -moz-crisp-edges;
+  border-radius: 5px;
+  height: 150px;
+  width: 80%;
+  margin-left: 10px;
+  margin-right: -17px;
+}
+
+.productCard {
+  text-transform: capitalize;
+  display: grid;
+  grid-template-columns: repeat(2, 0.5fr);
+  color: black;
+  text-decoration: none;
+}
+.productCard button {
+  background-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+/* Signle product page css */
+
+#productPage {
+  position: absolute;
+  left: 340px;
+  right: 100px;
+  top: 100px;
+}
+
+#productPage .imgDiv {
+  margin: 0 0 -1rem 0;
+  position: absolute;
+  border: 2px solid black;
+  box-shadow: 5px 2px 10px rgb(252, 204, 142);
+}
+
+#productPage h1 {
+  font-family: "Merriweather Sans", sans-serif;
+}
+#productPage h4 {
+  padding-left: 10px;
+  text-align: left;
+}
+
+#productPage .container:not(.buttonClass) {
+  font-family: "Merriweather Sans", sans-serif;
+  text-align: left;
+  background-color: var(--primary-color);
+  z-index: -1;
+  border: 2px solid var(--border);
+  padding: 9rem;
+  margin: auto 12rem;
+  box-shadow: 5px 2px 10px rgb(252, 204, 142);
+}
+
+#productPage .container .buttonClass {
+  margin-bottom: -1rem;
+  text-align: center;
+}
+
+#productPage .imgDiv {
+  top: 8.5rem;
+}
+#productPage img {
+  z-index: 1;
+  margin: 0 0 -4px 0;
+  object-fit: cover;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transition: transform 0.7s;
+}
+
+#productPage img:hover {
+  transform: scale(2);
+  z-index: 2;
+}
+
+#productPage .rating {
+  z-index: 0;
+  background-color: white;
+  border: 2px solid black;
+  position: absolute;
+  top: 6.99rem;
+  left: 6.5rem;
+}
+
+#productPage .container p:not(.prodText) {
+  font-size: medium;
+}
+#productPage .button {
+  font-size: small;
+  background: none;
+  border: none;
+}
+
+#productPage .button:hover {
+  cursor: pointer;
+}
+.pageNav {
+  position: absolute;
+  right: 250px;
+  top: 8rem;
+}
+.pageNav button {
+  border-radius: 4px;
+  font-size: medium;
+  background: none;
+  border: 1px solid var(--primary-color);
+  box-shadow: 2px 2px 2px rgb(252, 204, 142);
+  margin: auto 2px;
+}
+.pageNav button:hover {
+  cursor: pointer;
+}
+
+.img-slider img {
+  left: 0;
+  margin: 1rem 5rem 0 8rem;
+  height: 650px;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  border-radius: 55px;
+}
+.categories h1 {
+  margin-left: 25px;
+}
+
+.categories ul {
+  position: absolute;
+  margin-top: 2rem;
+  left: 5%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+}
+
+.categories .categoryText h3{
+  color: rgb(19, 122, 122);
+}
+.categories .categoryText p{
+  color: rgb(11, 78, 78);
+}
+
+.categories ul li {
+  padding: 1px 1rem 1px 1rem;
+  margin: auto 5rem;
+  border: 2px solid rgb(239, 238, 238);
+  box-shadow: 2px 2px 5px rgb(239, 238, 238);
+  height: 15rem;
+  width: 15rem;
+  border-radius: 40%;
+}
+.categories ul li div {
+  margin-top: 1.5rem;
+}
+
+.categories ul li div:hover {
+  border-radius: 50%;
+  transition: 1s;
+  transform: translate3d(20px, -20px, -0px);
+}
+.categories ul li div:not(:hover) {
+  transition: 1s;
+  transform: translate3d(0);
+}
+.categories ul li img {
+  border-radius: 60%;
+  object-fit: cover;
+  height: 15rem;
+  width: 15rem;
+  z-index: -1;
 }

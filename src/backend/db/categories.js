@@ -8,20 +8,35 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: "Chocolate",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
-  },
+      "Chocolate is a food made from roasted and ground cacao seed kernels that is available as a liquid, solid, or paste, either on its own or as a flavoring agent in other foods.",
+    img:"https://www.fnp.com/images/pr/l/v20221130121853/butterscotch-cake-half-kg_1.jpg"
+    },
+  // {
+  //   _id: uuid(),
+  //   categoryName: "Cookies",
+  //   description:
+  //     "A cookie, or a biscuit, is a baked or cooked snack or dessert that is typically small, flat and sweet. It usually contains flour, sugar, egg, and some type of oil, fat, or butter.",
+  // },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: "Beverage",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
-  },
+      "A drink or beverage is a liquid intended for human consumption. In addition to their basic function of satisfying thirst, drinks play important roles in human culture.",
+    img:"https://www.fnp.com/images/pr/l/v20221130121853/butterscotch-cake-half-kg_1.jpg"
+    },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "Cake",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
-  },
+      "Cake is a flour confection made from flour, sugar, and other ingredients, and is usually baked. In their oldest forms, cakes were modifications of bread.",
+    img:"https://www.fnp.com/images/pr/l/v20221130121853/butterscotch-cake-half-kg_1.jpg"
+    },
+  // {
+  //   _id: uuid(),
+  //   categoryName: "Ice-Cream",
+  //   description:
+  //     "Ice cream is a frozen dessert, typically made from milk or cream and flavoured with a sweetener, either sugar or an alternative, and a spice, such as cocoa or vanilla, or with fruits.",
+  // },
 ];
