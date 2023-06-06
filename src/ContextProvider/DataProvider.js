@@ -4,6 +4,8 @@ import { INITTAL_STATE, productReducer } from "../Reducer/reducer";
 
 export const DataContext = createContext();
 export function DataProvider({ children }) {
+  const [wishlistItems, setWishlistItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const [state, dispatch] = useReducer(productReducer, INITTAL_STATE);
 
   // {headers: autherization:"encodedTokens"}
@@ -30,23 +32,41 @@ export function DataProvider({ children }) {
     }
   };
 
-  const getWishlist = async () => {
-    try {
-      const wishlistReponse = await axios.get("/api/user/wishlist", {
-        header: { authorization: localStorage.getItem("token") },
-      });
-      if (wishlistReponse.status === 200) {
-        console.log(wishlistReponse);
-        // dispatch({
-        //   type:"GET_WISHLIST_DATA",
-        //   payload: wishlistReponse?.data?.wishlist
-        // })
-      }
-    } catch (e) {
-      console.log(e);
-    }
+  const RemoveFromCart = (item) => {
+    setCartItems(() => cartItems.filter((items) => items.id !== item.id));
+  };
+  const RemoveFromWishlist = (item) => {
+    setWishlistItems(() =>
+      wishlistItems.filter((items) => items.id !== item.id)
+    );
   };
 
+  const addWishListItem = (item) => {
+    console.log(item);
+    setWishlistItems([...wishlistItems, item]);
+  };
+
+  const addCartItem = (item) => {
+    setCartItems([...cartItems, item]);
+  };
+
+  // const getWishlist = async () => {
+  //   try {
+  //     const wishlistReponse = await axios.get("/api/user/wishlist", {
+  //       header: { authorization: localStorage.getItem("token") },
+  //     });
+
+  //     if (wishlistReponse.status === 200) {
+  //       console.log(wishlistReponse);
+  //       // dispatch({
+  //       //   type:"GET_WISHLIST_DATA",
+  //       //   payload: wishlistReponse?.data?.wishlist
+  //       // })
+  //     }
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
   const sorter = (value) => {
     dispatch({ type: "SORT", payload: value });
   };
@@ -69,7 +89,7 @@ export function DataProvider({ children }) {
 
   useEffect(() => {
     getData();
-    getWishlist();
+    // getWishlist();
   }, []);
 
   const filteredProducts =
@@ -93,6 +113,12 @@ export function DataProvider({ children }) {
         resetCategory,
         ratingFilter,
         filteredRating: state.filter.ratingBy,
+        addWishListItem,
+        addCartItem,
+        wishlistItems,
+        RemoveFromCart,
+        RemoveFromWishlist,
+        cartItems,
       }}
     >
       {children}

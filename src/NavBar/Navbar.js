@@ -1,4 +1,4 @@
-import { Link, NavLink, Route, Routes, useNavigate } from "react-router-dom";
+import { Link, NavLink, Route, Routes } from "react-router-dom";
 import {
   AiOutlineShoppingCart,
   AiOutlineHeart,
@@ -18,6 +18,7 @@ import logo from "../Assets/logo.svg";
 import { AuthRequired } from "../Pages/OtherComponents/RequiresAuth";
 
 export default function Navbar() {
+
   return (
     <div>
       {" "}

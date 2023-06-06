@@ -1,34 +1,27 @@
-import axios from "axios";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../..";
 
 export default function Login() {
-  const [emails, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+  const { token, currentUser, loginHandler } = useContext(AuthContext);
 
-  const [emailAndPass, setEmailAndPass] = useState({ email: "", password: "" });
+  const [emailAndPass, setEmailAndPass] = useState({
+    email_id: "",
+    pass_word: "",
+  });
 
-  const signupHandler = async () => {
-    try {
-      const response = await axios.post(`/api/auth/login`, {
-        email: emailAndPass.email,
-        password: emailAndPass.password,
-      });
-      // saving the encodedToken in the localStorage
-      localStorage.setItem("token", response.data.encodedToken);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   const changeHandlerEmail = (e) => {
-    setEmail(e.target.value);
+
+    setEmailAndPass({...emailAndPass, email_id:e.target.value})
   };
   const changeHandlerPass = (e) => {
-    setPass(e.target.value);
+
+    setEmailAndPass({...emailAndPass, pass_word:e.target.value})
   };
   const clickHandler = () => {
-    setEmailAndPass({ email: emails, password: pass });
-    signupHandler();
+    setEmailAndPass({ ...emailAndPass });
+
+    loginHandler(emailAndPass);
   };
   return (
     <div id="container">
