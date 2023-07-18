@@ -1,4 +1,4 @@
-/* input[type=range] {
+input[type=range] {
     background-color: #FCF4EA;
     height: 20px;
     -webkit-appearance: none;
@@ -88,4 +88,4 @@
   input[type=range]:focus::-ms-fill-upper {
     background-color: #FCF4EA;
   }
-   */
+  
