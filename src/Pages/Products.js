@@ -4,9 +4,11 @@ import { DataContext } from "..";
 import ProductCard from "./Subpages/Product/ProductCard";
 import Pagination from "./PagesAndFilters/Pagination";
 import Sidebar from "./PagesAndFilters/Sidebar";
+import Loader from "./Loader/Loader";
 
 export default function Products() {
   const {
+    state,
     ProductData,
     sorter,
     filterCategory,
@@ -32,13 +34,13 @@ export default function Products() {
   //     ? ProductData.sort((a, b) => b.price - a.price)
   //     : ProductData;
 
-  const filteredProducts = (Object.keys(categoryFiltered).every(
-    (k) => categoryFiltered[k] === false
-  )
-    ? ProductData
-    : ProductData.filter((item) => {
-        if (categoryFiltered[item.category]) return item;
-      })).filter((item)=>item.rating >= filteredRating);
+  const filteredProducts = (
+    Object.keys(categoryFiltered).every((k) => categoryFiltered[k] === false)
+      ? ProductData
+      : ProductData.filter((item) => {
+          if (categoryFiltered[item.category]) return item;
+        })
+  ).filter((item) => item.rating >= filteredRating);
 
   const anotherFilteredProducts = filteredProducts.filter((item) =>
     item.title
@@ -54,37 +56,48 @@ export default function Products() {
     lastPostIndex
   );
 
-  return (
+  return state.Loader === true ? (
+    <Loader />
+  ) : state.error === true ? (
+    <ErrorPage />
+  ) : (
     <div id="container">
       <h1>ALL PRODUCTS</h1>
+
       <Pagination
         totalPost={ProductData.length}
         postPerPage={postPerPage}
         setCurrentPage={setCurrentPage}
       />
-      <Sidebar
-        props={{
-          sorter,
-          filterCategory,
-          searchWith,
-          resetCategory,
-          categoryFiltered,
-          filters,
-          ratingFilter
-        }}
-      />
-
-      <ul id="products">
-        {currentPost?.map((item) => {
-          const { id, title, image, price, rating } = item;
-
-          return (
-            <li key={id}>
-              <ProductCard props={{ id, title, image, price, rating }} />{" "}
-            </li>
-          );
-        })}
-      </ul>
+      <div className="productsPage">
+        <div>
+          <Sidebar
+            props={{
+              sorter,
+              filterCategory,
+              searchWith,
+              resetCategory,
+              categoryFiltered,
+              filters,
+              ratingFilter,
+            }}
+          />
+        </div>
+        <div>
+          <ul id="products">
+            {currentPost?.map((item) => {
+              const { _id, title, image, price, rating } = item;
+              return (
+                <li key={_id}>
+                  <ProductCard
+                    props={{ id: _id, title, image, price, rating }}
+                  />{" "}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

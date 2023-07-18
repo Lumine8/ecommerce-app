@@ -6,7 +6,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "Strawberry Pavlova",
     desc: "Delicate as the ballerina it was named after, Pavlova is the quintessential summer dessert. Whipped cream is typically dolloped on top of a snowy meringue, followed by a pop of color in the form of fruit.",
@@ -18,7 +18,7 @@ export const products = [
     price: "300.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Chocolate",
     title: "Bresil Captivant 65%",
     desc: "A bar of dark chocolate made with the finest Brazilian cocoa beans with fresh notes of yellow fruits and slightly spicy followed by a slightly acidic attack with a strong cocoa taste for a good length in the mouth.",
@@ -30,7 +30,7 @@ export const products = [
     price: "999.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Beverage",
     title: "Blue Tokai Coffee Vienna Roast",
     desc: "The second darkest of our roasts, this blend has great body, low acidity and is a favourite choice for coffee drinkers who enjoy a strong cup, with the characteristic bittersweet notes. The Vienna Roast is best enjoyed with milk.",
@@ -42,7 +42,7 @@ export const products = [
     price: "470.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Beverage",
     title: "Society Coffee Premix Pouch",
     desc: "Wake up and smell this premium instant coffee. You will fall in love with it instantly. First the strong aroma and then the refreshing sip..ahhh! And come to think of it all you have to do is just add hot water, stir and you're ready to indulge yourself.",
@@ -55,7 +55,7 @@ export const products = [
   },
   ,
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Beverage",
     title: "Beewel 100% Specialty Grade Robusta",
     desc: "From the House Of Beewel : Bring home the taste of soothing bliss with Beewel’s Robusta medium roast whole bean made with speciality grade ,freshly roasted , Single origin straight from Mercara gold estate, the choicest plantations from coorg.",
@@ -67,7 +67,7 @@ export const products = [
     price: "449.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "Arabian Coffee Chocolate Cake",
     desc: "Strong & stimulating coffee mixed with a 38% dark chocolate truffle, layered onto cocoa cake sponges, covered and decorated with a fine chocolate truffle glaze with cocoa coffee bean.",
@@ -77,7 +77,7 @@ export const products = [
     price: "359.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "Japanese Sponge Cake",
     desc: "Kasutera is a traditional Japanese sponge cake made with sugar, flour, eggs, and starchy syrup. This Nagasaki specialty is raised solely by egg foam, with no added butter or oil, and has a soft, moist, and spongy texture. The cake is also known as Castella.",
@@ -89,7 +89,7 @@ export const products = [
     price: "750.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "Cremeschnitte",
     desc: "Cremeschnitte is a vanilla-flavored custard cream cake and an absolute classic among central and eastern European desserts. It is known by many names, most of which have stemmed from the German cremeschnitte, and literally translate to either cream slice or, in some cases, cream pie.",
@@ -101,7 +101,7 @@ export const products = [
     price: "800.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "Classic Sachertorte",
     desc: "The original Sachertorte is the most famous Austrian cake. It is a classic, layered chocolate sponge cake that is thinly coated with high-quality apricot jam and topped with chocolate icing. Sachertorte is said to taste the best when accompanied by cloud of unsweetened whipped cream on the side.",
@@ -113,7 +113,7 @@ export const products = [
     price: "449.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "Sernik: Polish cheesecake",
     desc: "Sernik is a Cheesecake from Poland, stemming from old Christian and Jewish traditions. It is made with eggs, sugar, and twaróg - a type of curd cheese that has been used in desserts for hundreds of years. It is believed that sernik originated in the 17th century.",
@@ -126,7 +126,7 @@ export const products = [
   },
   
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "Australian Lamington Cake",
     desc: "The world-famous Australian culinary icon Lamington consists of a sponge cake that is dipped in chocolate and sprinkled with finely desiccated coconut. The cake is believed to have been created by accident when Lord Lamington's maid accidentally dropped his cake in melted chocolate.",
@@ -138,7 +138,7 @@ export const products = [
     price: "349.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "Romagnola-Italian Ciambella",
     desc: "Ciambella is a traditional Italian ring cake that is flavored with lemon zest, and sometimes a sweet, fruity liqueur. For holidays such as Christmas or Easter, ciambella is usually made from a firm dough that is braided and shaped into a ring.",
@@ -150,7 +150,7 @@ export const products = [
     price: "599.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "Red velvet Cake",
     desc: "This American classic is traditionally made for Valentine's Day and Christmas. Red velvet cake is typically covered in a French-style butter roux icing, though recently cream cheese frosting and buttercream have both been used as a simpler and tastier alternative.",
@@ -162,7 +162,7 @@ export const products = [
     price: "799.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "New York-style cheesecake",
     desc: "New York-style cheesecake is different from other cheesecakes mainly because of its heavy and dense texture that feels extremely smooth and rich. Its flavor should be sweet and tangy, not citrusy, chewy, or starchy.",
@@ -174,7 +174,7 @@ export const products = [
     price: "499.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Chocolate",
     title: "Ruby Chocolate Bar Blueberry Cranberry Purple Haze",
     desc: "A refreshing burst of berries enhances the subtle fruitiness and fresh citric notes of ruby chocolate. A unique flavourful experience that’s going to put a spell on you.",
@@ -186,7 +186,7 @@ export const products = [
     price: "395.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Chocolate",
     title: "Teff Crackle 72% Dark Chocolate",
     desc: "First Teff chocolate with Goodness of Prebiotic Fiber,rich in natural Prebiotic fibre extracted from Citrus fruits, Papaya, Pineapple & Soya bean which introduces natural sweetness and reduces the bitter taste of dark chocolate",
@@ -198,7 +198,7 @@ export const products = [
     price: "395.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Chocolate",
     title: "52% Dark Chocolate | Couverture | Organic",
     desc: "Cocoacraft’s organic cocoa beans are handpicked from plantations in Kerala, then fermented, dried and processed naturally into fine chocolate. We take great care to bring out the natural flavour of the cocoa by extended conching.",
@@ -210,7 +210,7 @@ export const products = [
     price: "395.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Chocolate",
     title: "Ambriona - 55% Mild Dark Chocolate",
     desc: "Crafted by blending the highest-quality cocoa from Costa Rica, Togo and Vietnam. This Signature Blend bar is the perfectly balanced Dark chocolate, enamored with hints of red fruits and mild bitterness that never fails to leave behind a lingering fruity and smoky aftertaste on your palate.",
@@ -222,7 +222,7 @@ export const products = [
     price: "235.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Chocolate",
     title: "Assorted Chocolate Dark",
     desc: "This is a luxury assorted dark chocolate gift box with 50g each 85%, 75%, Almond and Hazelnut Dark Chocolate. Chocolate was invented in 1900 BC by the Aztecs in Central America. We at Didier & Frank bring you those exotic flavours and hand crafted chocolates that the Aztecs enjoyed secretly.",
@@ -233,7 +233,7 @@ export const products = [
   },
   ,
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Beverage",
     title: "Jolt Caramel Coffee- 80% Arabica Coffee | 20% Washed Robusta",
     desc: "Heavy mouthfeel with caramel notes & a pleasant aftertaste. This balanced coffee works well with milk based & black coffee drinks. 80% Arabica Coffee: 20% Washed Robusta",
@@ -245,7 +245,7 @@ export const products = [
     price: "449.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "Medovik",
     desc: "Medovik is a popular Russian layered honey cake consisting of honey-infused, almost biscuit-like sponges that are coated with thin layers of cream. Although there are numerous variations of the cake, the custard is usually prepared with whipped cream or various combinations of condensed milk and butter.",
@@ -257,7 +257,7 @@ export const products = [
     price: "629.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "Black Forest",
     desc: "Black Forest cherry cake is a popular German dessert consisting of chocolate sponges that are coated in whipped cream and dotted with kirschwasser-infused cherries. Some varieties use the kirschwasser brandy to soak the chocolate layers or to lightly flavor the whipped cream.",
@@ -269,7 +269,7 @@ export const products = [
     price: "550.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "Krémes",
     desc: "The Hungarian version of the famous cremeschnitte goes under the name krémes, meaning creamy. It combines two layers of puff pastry held together with a generous amount of smooth pastry cream. Though the recipe has been slightly modernized, the classic krémes pastry cream should be light and airy.",
@@ -281,7 +281,7 @@ export const products = [
     price: "475.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Beverage",
     title: "Dark Chocolate Balanced Diet Coffee",
     desc: "Guilt-free, delicious & healthy! Premium dark chocolate flavoured instant coffee infused with 11 healthy vitamins.",
@@ -293,7 +293,7 @@ export const products = [
     price: "225.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Beverage",
     title: "Rage Coffee - Dark Chocolate",
     desc: " Made using 100% Arabica beans and infused with high-quality natural flavourings. Balanced, smooth, and sweet without any bitterness. A complex special blend thanks to small batch crystallisation. Each serving has <5 calories, 90-120 mg caffeine per serving.",
@@ -305,7 +305,7 @@ export const products = [
     price: "244.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Chocolate",
     title: "Chocolate coated Coffee beans Dragees",
     desc: "Entisi dragees are chocolate coated nuts or fruits made with the finest quality of ingredients sourced from around the world.Whole roasted coffee beans dipped in dark chocolate",
@@ -317,7 +317,7 @@ export const products = [
     price: "299.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Beverage",
     title: "Chocolate Raspberry Premium Instant Coffee",
     desc: "Unique blend of chocolate, coffee and a twist of raspberry that'll hit you with a 90's nostalgia from the time you open your bottle to the very last sip of coffee. This fresh and tangy flavour is an IMPULSE COFFEES EXCLUSIVE! ",
@@ -329,7 +329,7 @@ export const products = [
     price: "450.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "Fudgy Brownie Cookie Dough Mix",
     desc: "A perfect marriage between a Chewy Chocolate Cookie and a Rich Fudgy Brownie, for a lot less calories. We’ve perfected cookies, and you can take all the credit.",
@@ -341,7 +341,7 @@ export const products = [
     price: "200.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Beverage",
     title: "Coffee Cookies | Ultra Low Carb",
     desc: "These products have been carefully curated to not only take care of your nutriotional Keto needs but also satisfy your craving of traditional snacks that one usually misses while on Ketogenic Diet.",
@@ -353,7 +353,7 @@ export const products = [
     price: "200.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Beverage",
     title: "Coffee Cookies",
     desc: "Your love for coffee now comes in a form of a cookie, made with a rich blend of coffee extract, jaggery, oatmeal powder and vegan butter, these cookies will surely fill your room with a scent of freshly brewed sweet coffee.",
@@ -365,7 +365,7 @@ export const products = [
     price: "199.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Cake",
     title: "Apricot Delight",
     desc: "Apricot delight is made with puree of apricots that have been soaked overnight in water. The soaked apricots are cooked with sugar and spread between slices of sponge cake",
@@ -377,7 +377,7 @@ export const products = [
     price: "315.00",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     category: "Chocolate",
     title: "Choco-Dipped Marie Biscuit",
     desc: "A childhood favourite, we combined the OG Marie Gold Biscuit with creamy, smooth and delicious chocolate. Each biscuit is sandwiched together and loaded with rich sweet chocolate filling and dipped further in chocolate.",
@@ -388,7 +388,7 @@ export const products = [
     rating: "4.9",
     price: "499.00",
   },  {
-    id: uuid(),
+    _id: uuid(),
     category: "Chocolate",
     title: "Vegan Dark Chocolate Sea Salt Gelato",
     desc: "True chocoholics, get ready for our Vegan Dark Chocolate Sea Salt Gelato. Blend of creamy dark chocolate with a hint of contrasting sea salt, this flavour will blow your mind. It’s Dairy-free with no added sugar, this is truly a Vegan delight!",
@@ -399,7 +399,7 @@ export const products = [
     rating: "5.0",
     price: "500.00",
   },{
-    id: uuid(),
+    _id: uuid(),
     category: "Chocolate",
     title: "My/Mochi Ice Cream, Cookies & Cream",
     desc: "Cookies & Cream My/Mo Mochi Ice Cream is the perfect combination of rich, premium ice cream and crisp, chocolatey cookies wrapped in mushy, mochi dough. A new kind of yum in your handheld snack…because nobody craves same-old.",
@@ -410,7 +410,7 @@ export const products = [
     rating: "4.5",
     price: "899.00",
   },{
-    id: uuid(),
+    _id: uuid(),
     category: "Chocolate",
     title: "Green Girl Bakeshop Ice Cream Sandwich",
     desc: "Creamy and milky Ice cream sandwiched between biscuits will definitely please your tastebuds. The amazing taste of milky ice cream between the biscuits makes it the tastiest ice cream of all time.",

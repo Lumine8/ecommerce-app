@@ -1,4 +1,7 @@
 import { v4 as uuid } from "uuid";
+import img1 from "../../Assets/Barry-Callebaut-on-growth-opportunities-for-chocolate.jpg"
+import img2 from "../../Assets/GettyImages-645462725-e1616622396590.jpg"
+import img3 from "../../Assets/l-intro-1658850950-fotor-20230718172057.jpg"
 
 /**
  * Category Database can be added here.
@@ -11,7 +14,7 @@ export const categories = [
     categoryName: "Chocolate",
     description:
       "Chocolate is a food made from roasted and ground cacao seed kernels that is available as a liquid, solid, or paste, either on its own or as a flavoring agent in other foods.",
-    img:"https://www.fnp.com/images/pr/l/v20221130121853/butterscotch-cake-half-kg_1.jpg"
+    img:img1
     },
   // {
   //   _id: uuid(),
@@ -24,14 +27,14 @@ export const categories = [
     categoryName: "Beverage",
     description:
       "A drink or beverage is a liquid intended for human consumption. In addition to their basic function of satisfying thirst, drinks play important roles in human culture.",
-    img:"https://www.fnp.com/images/pr/l/v20221130121853/butterscotch-cake-half-kg_1.jpg"
+    img:img2
     },
   {
     _id: uuid(),
     categoryName: "Cake",
     description:
       "Cake is a flour confection made from flour, sugar, and other ingredients, and is usually baked. In their oldest forms, cakes were modifications of bread.",
-    img:"https://www.fnp.com/images/pr/l/v20221130121853/butterscotch-cake-half-kg_1.jpg"
+    img:img3
     },
   // {
   //   _id: uuid(),

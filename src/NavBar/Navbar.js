@@ -2,7 +2,7 @@ import { Link, NavLink, Route, Routes } from "react-router-dom";
 import {
   AiOutlineShoppingCart,
   AiOutlineHeart,
-  AiOutlineLogin,
+  AiOutlineUser,
 } from "react-icons/ai";
 
 import Mockman from "mockman-js";
@@ -16,9 +16,12 @@ import Register from "../Pages/loginAndRegister/Register";
 import ProductDetails from "../Pages/Subpages/Product/ProductDetails";
 import logo from "../Assets/logo.svg";
 import { AuthRequired } from "../Pages/OtherComponents/RequiresAuth";
+import UserProfile from "../Pages/UserDetails/UserProfile";
+import CheckOut from "../Pages/CheckOutModal/CheckOutPage";
+import Loader from "../Pages/Loader/Loader";
+import ErrorPage from "../Pages/Error/ErrorPage";
 
 export default function Navbar() {
-
   return (
     <div>
       {" "}
@@ -30,15 +33,14 @@ export default function Navbar() {
           <NavLink className="navlink" to="/products">
             Products
           </NavLink>
-          <NavLink className="navlink" to="/cart">
-            <AiOutlineShoppingCart />
-          </NavLink>
           <NavLink className="navlink" to="/wishlist">
             <AiOutlineHeart />
           </NavLink>
-          <NavLink className="navlink" to="/login">
-            Login / Register
-            <AiOutlineLogin size={19} style={{ verticalAlign: "bottom" }} />
+          <NavLink className="navlink" to="/cart">
+            <AiOutlineShoppingCart />
+          </NavLink>
+          <NavLink className="navlink" to="/profile">
+            <AiOutlineUser size={19} style={{ verticalAlign: "Top" }} />
           </NavLink>
         </nav>
       </div>
@@ -63,10 +65,20 @@ export default function Navbar() {
         />
 
         <Route path="/login" element={<Login />} />
-
+        <Route
+          path="/profile"
+          element={
+            <AuthRequired>
+              <UserProfile />
+            </AuthRequired>
+          }
+        />
         <Route path="/mockman" element={<Mockman />} />
         <Route path="/products/:productId" element={<ProductDetails />} />
-        <Route path="/register" element={<Register />}/>
+        <Route path="/register" element={<Register />} />
+        <Route path="/checkout" element={<CheckOut/>}/>
+        <Route path="/loader" element={<Loader/>} />
+        <Route path="/error" element={<ErrorPage/>}/>
       </Routes>
     </div>
   );

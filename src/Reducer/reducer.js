@@ -1,4 +1,6 @@
 export const INITTAL_STATE = {
+  Loader: true,
+  error: false,
   filter: {
     ratingBy: 0,
     sortBy: "",
@@ -16,18 +18,32 @@ export const productReducer = (state, action) => {
     case "GET_PRODUCT_DATA":
       return {
         ...state,
+        Loader: false,
         productData: action.payload,
+      };
+    case "IS_ERROR":
+      return {
+        ...state,
+        error: action.payload,
+      };
+
+    case "IS_LOADING":
+      return {
+        ...state,
+        Loader: action.payload,
       };
 
     case "GET_CATEGORIES":
       const categories = action.payload.reduce((acc, cur) => {
         return {
           ...acc,
+          Loader: false,
           [cur.categoryName]: false,
         };
       }, {});
       return {
         ...state,
+        Loader: false,
         categories: action.payload,
         filter: {
           ...state.filter,
@@ -38,12 +54,34 @@ export const productReducer = (state, action) => {
     case "GET_WISHLIST_DATA":
       return {
         ...state,
-        wishlist:action.payload
+        Loader: false,
+        wishlist: action.payload,
+      };
+
+    case "REMOVE_FROM_WISHLIST":
+      return {
+        ...state,
+        Loader: false,
+        wishlist: action.payload.filter((item) => item !== action.payload),
+      };
+    case "GET_CART_DATA":
+      return {
+        ...state,
+        Loader: false,
+        cartData: action.payload,
+      };
+
+    case "REMOVE_FROM_CART":
+      return {
+        ...state,
+        Loader: false,
+        cartData: action.payload,
       };
 
     case "SORT":
       return {
         ...state,
+        Loader: false,
         filter: {
           ...state.filter,
           sortBy: action.payload,
@@ -52,6 +90,7 @@ export const productReducer = (state, action) => {
     case "CATEGORY_FILTER":
       return {
         ...state,
+        Loader: false,
         filter: {
           ...state.filter,
           category: {
@@ -63,6 +102,7 @@ export const productReducer = (state, action) => {
     case "SEARCH_FILTER":
       return {
         ...state,
+        Loader: false,
         filter: {
           ...state.filter,
           search: action.payload,
@@ -71,6 +111,7 @@ export const productReducer = (state, action) => {
     case "SORT_BY_RATING":
       return {
         ...state,
+        Loader: false,
         filter: {
           ...state.filter,
           ratingBy: action.payload,
@@ -80,11 +121,13 @@ export const productReducer = (state, action) => {
       const resetCategory = action.payload.reduce((acc, cur) => {
         return {
           ...acc,
+          Loader: false,
           [cur.categoryName]: false,
         };
       }, {});
       return {
         ...state,
+        Loader: false,
         filter: {
           ratingBy: 0,
           sortBy: "",
@@ -96,6 +139,7 @@ export const productReducer = (state, action) => {
     default:
       return {
         ...state,
+        Loader: false,
       };
   }
 };

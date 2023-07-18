@@ -1,14 +1,22 @@
 import axios from "axios";
-import { toast } from "react-hot-toast";
-import { createContext, useState } from "react";
+import { createContext, useState, useReducer } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+
+import { INITTAL_STATE, productReducer } from "../Reducer/reducer";
 
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const navigate = useNavigate();
   const location = useLocation();
+  const [getAddress, setGetAddress] = useState([{
+    street: "",
+    state: "",
+    city: "",
+    pincode: "",
+  }]);
 
+  const [state, dispatch] = useReducer(productReducer, INITTAL_STATE);
   const [isLogged, setIsLogged] = useState(false);
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
@@ -19,16 +27,12 @@ export function AuthProvider({ children }) {
     email_id,
     pass_word,
   }) => {
-    console.log(first_name,
-      last_name,
-      email_id,
-      pass_word,)
     try {
       const {
         status,
         data: { createdUser, encodedToken },
       } = await axios.post(`/api/auth/signup`, {
-        name:first_name+" "+last_name,
+        name: first_name + " " + last_name,
         email: email_id,
         password: pass_word,
       });
@@ -39,7 +43,6 @@ export function AuthProvider({ children }) {
           JSON.stringify({ token: encodedToken, currentUser: createdUser })
         );
         setToken(encodedToken);
-
         setCurrentUser(createdUser);
         setIsLogged(!isLogged);
         navigate(location?.state?.from?.pathname);
@@ -62,17 +65,22 @@ export function AuthProvider({ children }) {
       // saving the encodedToken in the localStorage
       if (status === 200) {
         localStorage.setItem(
-          "loginDetails",
+          "loginId",
           JSON.stringify({
-            encodedToken: encodedToken,
+            encodedToken,
             currentUser: foundUser,
           })
         );
         setToken(encodedToken);
-        toast.success("Successfully Logged in!");
         setCurrentUser(foundUser);
         setIsLogged(!isLogged);
+        setGetAddress(foundUser.address);
         navigate(location?.state?.from?.pathname ?? "/");
+
+        dispatch({
+          type: "GET_WISHLIST_DATA",
+          payload: foundUser?.wishlist,
+        });
       }
     } catch (error) {
       console.log(error);
@@ -87,6 +95,8 @@ export function AuthProvider({ children }) {
         currentUser,
         signupHandler,
         loginHandler,
+        getAddress,
+        setGetAddress,
       }}
     >
       {children}

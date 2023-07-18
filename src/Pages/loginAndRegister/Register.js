@@ -2,13 +2,26 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../..";
 export default function Register() {
   const { token, currentUser, signupHandler } = useContext(AuthContext);
-
+  const [confirmPass, setConfirmPass] = useState(true);
   const [emailAndPass, setEmailAndPass] = useState({
     first_name: "",
     last_name: "",
     email_id: "",
     pass_word: "",
   });
+
+  const confirmPasshandler = (e) => {
+    if (
+      emailAndPass.first_name &&
+      emailAndPass.last_name &&
+      emailAndPass.pass_word &&
+      emailAndPass.email_id !== ""
+    ) {
+      setConfirmPass(emailAndPass.pass_word !== e.target.value);
+    }else{
+      setConfirmPass(true)
+    }
+  };
 
   const changeHandlerEmail = (e) => {
     setEmailAndPass({ ...emailAndPass, email_id: e.target.value });
@@ -49,7 +62,14 @@ export default function Register() {
         placeholder="password"
         onChange={(e) => changeHandlerPass(e)}
       />
-      <button onClick={clickHandler}>Register</button>
+      <input
+        type="password"
+        placeholder="confirm password"
+        onChange={(e) => confirmPasshandler(e)}
+      />
+      <button onClick={clickHandler} disabled={confirmPass}>
+        Register
+      </button>
     </div>
   );
 }

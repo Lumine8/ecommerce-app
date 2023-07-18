@@ -1,16 +1,49 @@
-import { createContext, useEffect, useReducer, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import axios from "axios";
 import { INITTAL_STATE, productReducer } from "../Reducer/reducer";
+import { AuthContext } from "./AuthProvider";
 
 export const DataContext = createContext();
 export function DataProvider({ children }) {
-  const [wishlistItems, setWishlistItems] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+  const { getAddress, setGetAddress } = useContext(AuthContext);
+
   const [state, dispatch] = useReducer(productReducer, INITTAL_STATE);
+
+  const [newAddress, setnewAddress] = useState({
+    street: "",
+    state: "",
+    city: "",
+    pincode: "",
+  });
+
+  const [address, setAddress] = useState([...getAddress]);
+
+  const [getProduct, setGetProduct] = useState({
+    _id: 123,
+    category: "Loading",
+    title: "Loading",
+    desc: "Loading",
+    image:
+      "https://realfood.tesco.com/media/images/RaspberryCremeschnitte-LGH-mini-9f2c763c-0724-4fce-9632-965e842cc98e-0-1400x919.jpg",
+    thumbnail:
+      "https://realfood.tesco.com/media/images/RaspberryCremeschnitte-LGH-mini-9f2c763c-0724-4fce-9632-965e842cc98e-0-1400x919.jpg",
+    rating: "0.0",
+    price: "Loading",
+  });
 
   // {headers: autherization:"encodedTokens"}
 
   const getData = async () => {
+    dispatch({
+      type: "IS_LOADING",
+      payload: true,
+    });
     try {
       const prodData = await fetch("/api/products");
       const categories = await fetch("/api/categories");
@@ -28,45 +61,257 @@ export function DataProvider({ children }) {
         });
       }
     } catch (e) {
+      dispatch({
+        type: "IS_ERROR",
+        payload: true,
+      });
       console.log(e);
     }
   };
 
-  const RemoveFromCart = (item) => {
-    setCartItems(() => cartItems.filter((items) => items.id !== item.id));
-  };
-  const RemoveFromWishlist = (item) => {
-    setWishlistItems(() =>
-      wishlistItems.filter((items) => items.id !== item.id)
-    );
+  const getProductById = async (product) => {
+    dispatch({
+      type: "IS_LOADING",
+      payload: true,
+    });
+    try {
+      const response = await axios.get(`/api/products/${product}`);
+      if (response?.status === 200 || response?.status === 201) {
+        setGetProduct(response?.data?.product);
+        dispatch({
+          type: "IS_LOADING",
+          payload: false,
+        });
+      }
+    } catch (e) {
+      dispatch({
+        type: "IS_ERROR",
+        payload: true,
+      });
+      console.log(e);
+    }
   };
 
-  const addWishListItem = (item) => {
-    console.log(item);
-    setWishlistItems([...wishlistItems, item]);
+  const getWishlist = async () => {
+    dispatch({
+      type: "IS_LOADING",
+      payload: true,
+    });
+    const loginVal = JSON.parse(localStorage.getItem("loginId"));
+    try {
+      const wishlistReponse = await axios.get("/api/user/wishlist", {
+        headers: { authorization: loginVal.encodedToken },
+      });
+
+      if (wishlistReponse.status === 200 || wishlistReponse.status === 201) {
+        dispatch({
+          type: "GET_WISHLIST_DATA",
+          payload: wishlistReponse?.data?.wishlist,
+        });
+      }
+    } catch (e) {
+      dispatch({
+        type: "IS_ERROR",
+        payload: true,
+      });
+      console.log(e);
+    }
   };
 
-  const addCartItem = (item) => {
-    setCartItems([...cartItems, item]);
+  const addToWishlist = async (product) => {
+    dispatch({
+      type: "IS_LOADING",
+      payload: true,
+    });
+    const loginVal = JSON.parse(localStorage.getItem("loginId"));
+    try {
+      const response = await axios.post(
+        "/api/user/wishlist",
+        { product },
+        { headers: { authorization: loginVal.encodedToken } }
+      );
+      if (response.status === 200 || response.status === 201) {
+        dispatch({
+          type: "GET_WISHLIST_DATA",
+          payload: response?.data?.wishlist,
+        });
+      }
+    } catch (e) {
+      dispatch({
+        type: "IS_ERROR",
+        payload: true,
+      });
+      console.log(e);
+    }
   };
 
-  // const getWishlist = async () => {
-  //   try {
-  //     const wishlistReponse = await axios.get("/api/user/wishlist", {
-  //       header: { authorization: localStorage.getItem("token") },
-  //     });
+  const deleteFromWishlist = async (product) => {
+    dispatch({
+      type: "IS_LOADING",
+      payload: true,
+    });
+    const loginVal = JSON.parse(localStorage.getItem("loginId"));
+    try {
+      const response = await axios.delete(`/api/user/wishlist/${product._id}`, {
+        headers: { authorization: loginVal.encodedToken },
+      });
+      if (response.status === 200 || response.status === 201) {
+        dispatch({
+          type: "REMOVE_FROM_WISHLIST",
+          payload: response?.data?.wishlist,
+        });
+      }
+    } catch (e) {
+      dispatch({
+        type: "IS_ERROR",
+        payload: true,
+      });
+      console.log(e);
+    }
+  };
 
-  //     if (wishlistReponse.status === 200) {
-  //       console.log(wishlistReponse);
-  //       // dispatch({
-  //       //   type:"GET_WISHLIST_DATA",
-  //       //   payload: wishlistReponse?.data?.wishlist
-  //       // })
-  //     }
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
+  // Getting cart data, adding to cart and deleting to cart
+  const getCartData = async () => {
+    dispatch({
+      type: "IS_LOADING",
+      payload: true,
+    });
+    const loginVal = JSON.parse(localStorage.getItem("loginId"));
+    try {
+      const response = await axios.get("/api/user/cart", {
+        headers: { authorization: loginVal.encodedToken },
+      });
+
+      if (response.status === 200 || response.status === 201) {
+        dispatch({
+          type: "GET_CART_DATA",
+          payload: response?.data?.cart,
+        });
+      }
+    } catch (e) {
+      dispatch({
+        type: "IS_ERROR",
+        payload: true,
+      });
+      console.log(e);
+    }
+  };
+
+  const addToCart = async (product) => {
+    const loginVal = JSON.parse(localStorage.getItem("loginId"));
+    try {
+      const response = await axios.post(
+        "/api/user/cart",
+        { product },
+        { headers: { authorization: loginVal.encodedToken } }
+      );
+      if (response.status === 200 || response.status === 201) {
+        dispatch({
+          type: "GET_CART_DATA",
+          payload: response?.data?.cart,
+        });
+      }
+    } catch (e) {
+      dispatch({
+        type: "IS_ERROR",
+        payload: true,
+      });
+      console.log(e);
+    }
+  };
+
+  const deleteFromCart = async (product) => {
+    const loginVal = JSON.parse(localStorage.getItem("loginId"));
+    console.log(product);
+    try {
+      const response = await axios.delete(`/api/user/cart/${product._id}`, {
+        headers: { authorization: loginVal.encodedToken },
+      });
+      if (response.status === 200 || response.status === 201) {
+        dispatch({
+          type: "REMOVE_FROM_CART",
+          payload: response?.data?.cart,
+        });
+      }
+    } catch (e) {
+      dispatch({
+        type: "IS_ERROR",
+        payload: true,
+      });
+      console.log(e);
+    }
+  };
+  const IncrementCartData = async (product) => {
+    const loginVal = JSON.parse(localStorage.getItem("loginId"));
+    try {
+      const response = await axios.post(
+        `/api/user/cart/${product._id}`,
+        {
+          action: {
+            type: "increment",
+          },
+        },
+        {
+          headers: {
+            authorization: loginVal.encodedToken,
+          },
+        }
+      );
+      if (response.status === 200 || response.status === 201) {
+        dispatch({
+          type: "GET_CART_DATA",
+          payload: response?.data?.cart,
+        });
+      }
+    } catch (e) {
+      dispatch({
+        type: "IS_ERROR",
+        payload: true,
+      });
+      console.log(e);
+    }
+  };
+
+  const DecrementCartData = async (product) => {
+    const loginVal = JSON.parse(localStorage.getItem("loginId"));
+    try {
+      const response = await axios.post(
+        `/api/user/cart/${product._id}`,
+        {
+          action: {
+            type: "decrement",
+          },
+        },
+        {
+          headers: {
+            authorization: loginVal.encodedToken,
+          },
+        }
+      );
+      if (response.status === 200 || response.status === 201) {
+        console.log(
+          state?.cartData?.filter((items) => items._id === product._id)[0].qty
+        );
+        if (
+          state?.cartData?.filter((items) => items._id === product._id)[0]
+            ?.qty === 1
+        ) {
+          deleteFromCart(product);
+        }
+        dispatch({
+          type: "GET_CART_DATA",
+          payload: response?.data?.cart,
+        });
+      }
+    } catch (e) {
+      dispatch({
+        type: "IS_ERROR",
+        payload: true,
+      });
+      console.log(e);
+    }
+  };
+
   const sorter = (value) => {
     dispatch({ type: "SORT", payload: value });
   };
@@ -89,7 +334,8 @@ export function DataProvider({ children }) {
 
   useEffect(() => {
     getData();
-    // getWishlist();
+    getWishlist();
+    getCartData();
   }, []);
 
   const filteredProducts =
@@ -102,6 +348,10 @@ export function DataProvider({ children }) {
   return (
     <DataContext.Provider
       value={{
+        getProduct,
+        getProductById,
+        state,
+        addToWishlist,
         ProductData: filteredProducts,
         CategoriesData: state.categories,
         sorter,
@@ -113,12 +363,17 @@ export function DataProvider({ children }) {
         resetCategory,
         ratingFilter,
         filteredRating: state.filter.ratingBy,
-        addWishListItem,
-        addCartItem,
-        wishlistItems,
-        RemoveFromCart,
-        RemoveFromWishlist,
-        cartItems,
+        addCartItem: addToCart,
+        deleteFromWishlist,
+        wishlistItems: state.wishlist,
+        RemoveFromCart: deleteFromCart,
+        DecrementCartData,
+        IncrementCartData,
+        cartItems: state.cartData,
+        setGetAddress,
+        getAddress,
+        newAddress,
+        setnewAddress,
       }}
     >
       {children}

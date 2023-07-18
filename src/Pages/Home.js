@@ -5,13 +5,19 @@ import { DataContext } from "..";
 import banner1 from "../Assets/Black Cream Food Hotdog American Food Banner Landscape.svg";
 import banner2 from "../Assets/Cream Minimalist New Arrival Boater Hat Promotion Banner .svg";
 import CategoryCard from "./Subpages/Category/CategoryCard";
+import Loader from "./Loader/Loader";
+import ErrorPage from "./Error/ErrorPage";
 
 export default function Home() {
-  const { CategoriesData, filterCategory } = useContext(DataContext);
+  const { CategoriesData, filterCategory, state } = useContext(DataContext);
   const randombanner = [banner1, banner2];
   const banner = randombanner[Math.trunc(Math.random() * randombanner.length)];
 
-  return (
+  return state.Loader === true ? (
+    <Loader />
+  ) : state.error === true ? (
+    <ErrorPage />
+  ) : (
     <div id="container">
       <section className="img-slider">
         <div className="slide">
@@ -27,8 +33,12 @@ export default function Home() {
             const { _id, categoryName, description, img } = item;
             return (
               <li key={_id}>
-                <Link to="/products" onClick={()=>filterCategory(categoryName)} style={{textDecoration:"none"}}>
-                  <CategoryCard props={{ categoryName, description, img }}/>
+                <Link
+                  to="/products"
+                  onClick={() => filterCategory(categoryName)}
+                  style={{ textDecoration: "none" }}
+                >
+                  <CategoryCard props={{ categoryName, description, img }} />
                 </Link>
               </li>
             );

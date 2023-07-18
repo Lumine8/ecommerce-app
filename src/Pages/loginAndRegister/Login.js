@@ -9,6 +9,10 @@ export default function Login() {
     email_id: "",
     pass_word: "",
   });
+  
+  const guestSignin = () =>{
+    loginHandler({email_id:"adarshbalika@gmail.com",pass_word:"adarshbalika"})
+  }
 
   const changeHandlerEmail = (e) => {
 
@@ -38,6 +42,10 @@ export default function Login() {
       />
       <button onClick={clickHandler}>Submit</button>
       <Link to="/register">Register</Link>
+
+      <div>
+        Sign in as <button onClick={guestSignin}>Guest</button>
+      </div>
     </div>
   );
 }

@@ -1,28 +1,68 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { DataContext } from "../../..";
+import axios from "axios";
+import Loader from "../../Loader/Loader";
 
 export default function ProductDetails() {
   const { productId } = useParams();
 
-  const { ProductData, addWishListItem, addCartItem,wishlistItems, cartItems } = useContext(DataContext);
-  console.log(wishlistItems)
+  const {
+    state,
+    getProduct,
+    addToWishlist,
+    ProductData,
+    addWishListItem,
+    addCartItem,
+    wishlistItems,
+    DecrementCartData,
+    IncrementCartData,
+    cartItems,
+  } = useContext(DataContext);
 
-  const filteredData = ProductData?.filter((item) => item.id == productId)[0];
+  const filteredData = getProduct;
+
   const { title, image, price, rating, desc, category } = filteredData;
 
   const addToCartHandler = (item) => {
     addCartItem(item);
-  };
-  const addToWishHandler = (item) => {
-    addWishListItem(item);
+    toast.success("Added To Cart !", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+      autoClose: 2000,
+    });
   };
 
-  return (
+  const incrementProductQty = (product) => {
+    IncrementCartData(product);
+  };
+
+  const decrementProductQty = (product) => {
+    // console.log(
+    //   state?.cartData?.filter((item) => item._id === filteredData._id)[0]
+    // );
+    DecrementCartData(product);
+  };
+
+  const addToWishHandler = (item) => {
+    addToWishlist(item);
+    toast.success("Added To WishList !", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+      autoClose: 2000,
+    });
+  };
+
+  return state.Loader === true ? (
+    <Loader />
+  ) : state.error === true ? (
+    <ErrorPage />
+  ) : (
     <div id="productPage">
       <div className="imgDiv">
         <img src={image} alt={title} />
@@ -47,26 +87,52 @@ export default function ProductDetails() {
         <p style={{ paddingLeft: "9px" }}>Categories: {category}</p>
         <hr />
         <h4>{desc}</h4>
-
         <p className="buttonClass">
           {" "}
           <button
             className="button"
             onClick={() => addToWishHandler(filteredData)}
-            disabled={wishlistItems.includes(filteredData)}
+            disabled={wishlistItems.some(
+              (item) => item._id === filteredData._id
+            )}
           >
             <MdOutlineFavoriteBorder style={{ fontSize: "small" }} />
-            {wishlistItems.includes(filteredData)?"Added to Favorite" :"Add to Favorite"}
+            {wishlistItems.some((item) => item._id === filteredData._id)
+              ? "Added to Favorite"
+              : "Add to Favorite"}
+              <ToastContainer/>
           </button>{" "}
           &nbsp;&nbsp;&nbsp;{" "}
-          <button
-            className="button"
-            onClick={() => addToCartHandler(filteredData)}
-            disabled={cartItems.includes(filteredData)}
-          >
-            <AiOutlineShoppingCart /> {cartItems.includes(filteredData)?"Added to Cart" :"Add to Cart"}
-          </button>
-        </p>
+          {cartItems.filter((item) => item._id === filteredData._id).length ===
+          0 ? (
+            <button
+              className="button"
+              onClick={() => addToCartHandler(filteredData)}
+            >
+              <AiOutlineShoppingCart />{" "}
+              {cartItems.filter((item) => item._id === filteredData._id)
+                .length === 0
+                ? "Add to Cart"
+                : "Added to Cart"}
+            </button>
+          ) : (
+            <div>
+              <ToastContainer />
+              <button onClick={() => incrementProductQty(filteredData)}>
+                +1
+              </button>
+              <button style={{ border: "none", padding: "0 10px" }}>
+                {
+                  cartItems?.filter((item) => item._id === filteredData._id)[0]
+                    ?.qty
+                }
+              </button>
+              <button onClick={() => decrementProductQty(filteredData)}>
+                -1
+              </button>
+            </div>
+          )}
+        </p>{" "}
       </div>
     </div>
   );
