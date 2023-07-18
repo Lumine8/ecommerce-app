@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { DataContext } from "../../..";
 import axios from "axios";
 import Loader from "../../Loader/Loader";
+import ErrorPage from "../../Error/ErrorPage";
 
 export default function ProductDetails() {
   const { productId } = useParams();

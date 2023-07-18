@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 
 import { DataContext } from "..";
+
 import ProductCard from "./Subpages/Product/ProductCard";
 import Pagination from "./PagesAndFilters/Pagination";
 import Sidebar from "./PagesAndFilters/Sidebar";
 import Loader from "./Loader/Loader";
+import ErrorPage from "./Error/ErrorPage";
 
 export default function Products() {
   const {
@@ -59,7 +61,7 @@ export default function Products() {
   return state.Loader === true ? (
     <Loader />
   ) : state.error === true ? (
-    <ErrorPage />
+    <ErrorPage/>
   ) : (
     <div id="container">
       <h1>ALL PRODUCTS</h1>
