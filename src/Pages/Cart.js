@@ -23,7 +23,7 @@ export default function Cart() {
   );
 
   const removeFromCart = (item) => {
-    toast.success("Removed From Wishlist !", {
+    toast.success("Removed From Cart !", {
       position: toast.POSITION.BOTTOM_RIGHT,
       autoClose: 2000,
     });
