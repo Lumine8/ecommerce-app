@@ -64,76 +64,79 @@ export default function ProductDetails() {
   ) : state.error === true ? (
     <ErrorPage />
   ) : (
-    <div id="productPage">
-      <div className="imgDiv">
-        <img src={image} alt={title} />
-      </div>
-      <div className="rating">
-        <div className="prodText">
-          <StarRatings
-            starRatedColor="orange"
-            rating={Number(rating)}
-            starDimension="18px"
-            starSpacing="1px"
-            starEmptyColor="grey"
-          />
+    <div className="SingleProductPage">
+      <div id="productPage">
+        <div className="imgDiv">
+          <img src={image} alt={title} />
         </div>
-      </div>
-      <div className="container">
-        <h1 className="prodText">{title}</h1>
-        <p className="prodText">
-          <sup>₹ </sup>
-          {price}
-        </p>
-        <p style={{ paddingLeft: "9px" }}>Categories: {category}</p>
-        <hr />
-        <h4>{desc}</h4>
-        <p className="buttonClass">
-          {" "}
-          <button
-            className="button"
-            onClick={() => addToWishHandler(filteredData)}
-            disabled={wishlistItems.some(
-              (item) => item._id === filteredData._id
-            )}
-          >
-            <MdOutlineFavoriteBorder style={{ fontSize: "small" }} />
-            {wishlistItems.some((item) => item._id === filteredData._id)
-              ? "Added to Favorite"
-              : "Add to Favorite"}
-              <ToastContainer/>
-          </button>{" "}
-          &nbsp;&nbsp;&nbsp;{" "}
-          {cartItems.filter((item) => item._id === filteredData._id).length ===
-          0 ? (
+        <div className="rating">
+          <div className="prodText">
+            <StarRatings
+              starRatedColor="orange"
+              rating={Number(rating)}
+              starDimension="18px"
+              starSpacing="1px"
+              starEmptyColor="grey"
+            />
+          </div>
+        </div>
+        <div className="container">
+          <h1 className="prodText">{title}</h1>
+          <p className="prodText">
+            <sup>₹ </sup>
+            {price}
+          </p>
+          <p style={{ paddingLeft: "9px" }}>Categories: {category}</p>
+          <hr />
+          <h4>{desc}</h4>
+          <p className="buttonClass">
+            {" "}
             <button
               className="button"
-              onClick={() => addToCartHandler(filteredData)}
+              onClick={() => addToWishHandler(filteredData)}
+              disabled={wishlistItems.some(
+                (item) => item._id === filteredData._id
+              )}
             >
-              <AiOutlineShoppingCart />{" "}
-              {cartItems.filter((item) => item._id === filteredData._id)
-                .length === 0
-                ? "Add to Cart"
-                : "Added to Cart"}
-            </button>
-          ) : (
-            <div>
+              <MdOutlineFavoriteBorder style={{ fontSize: "small" }} />
+              {wishlistItems.some((item) => item._id === filteredData._id)
+                ? "Added to Favorite"
+                : "Add to Favorite"}
               <ToastContainer />
-              <button onClick={() => incrementProductQty(filteredData)}>
-                +1
+            </button>{" "}
+            &nbsp;&nbsp;&nbsp;{" "}
+            {cartItems.filter((item) => item._id === filteredData._id)
+              .length === 0 ? (
+              <button
+                className="button"
+                onClick={() => addToCartHandler(filteredData)}
+              >
+                <AiOutlineShoppingCart />{" "}
+                {cartItems.filter((item) => item._id === filteredData._id)
+                  .length === 0
+                  ? "Add to Cart"
+                  : "Added to Cart"}
               </button>
-              <button style={{ border: "none", padding: "0 10px" }}>
-                {
-                  cartItems?.filter((item) => item._id === filteredData._id)[0]
-                    ?.qty
-                }
-              </button>
-              <button onClick={() => decrementProductQty(filteredData)}>
-                -1
-              </button>
-            </div>
-          )}
-        </p>{" "}
+            ) : (
+              <div>
+                <ToastContainer />
+                <button onClick={() => incrementProductQty(filteredData)}>
+                  +1
+                </button>
+                <button style={{ border: "none", padding: "0 10px" }}>
+                  {
+                    cartItems?.filter(
+                      (item) => item._id === filteredData._id
+                    )[0]?.qty
+                  }
+                </button>
+                <button onClick={() => decrementProductQty(filteredData)}>
+                  -1
+                </button>
+              </div>
+            )}
+          </p>{" "}
+        </div>
       </div>
     </div>
   );

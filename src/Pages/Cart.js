@@ -1,6 +1,9 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { BsTrash } from "react-icons/bs";
+
+import {PiSmileySadLight} from "react-icons/pi"
+import { BsCartX } from "react-icons/bs";
+import {LiaShoppingCartSolid} from "react-icons/lia"
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -31,59 +34,69 @@ export default function Cart() {
   };
 
   return (
-    <div id="container">
-      <h1>This is the Cart Page</h1>
+    <div className="CartPage">
+      <h1> CART <LiaShoppingCartSolid size={50} style={{marginBottom:"-0.7rem"}}/></h1>
 
       {cartItems.length ? (
-        <div className="Cart-container">
-          <ul className="cart-items">
-            {cartItems.map((item) => {
-              const { id, title, image, price, rating, qty } = item;
-              return (
-                <li key={id}>
-                  <h3>{title}</h3>
-                  <p>{price * qty}</p>
-                  <div>
-                    <button onClick={() => removeFromCart(item)}>
-                      <BsTrash style={{ marginBottom: "-2px" }} /> Remove from
-                      Cart
-                    </button>
-                    &nbsp;
-                    <button onClick={() => IncrementCartData(item)}>+1</button>
-                    <button style={{ border: "none", padding: "0 10px" }}>
-                      {qty ?? 1}
-                    </button>
-                    <button onClick={() => DecrementCartData(item)}>-1</button>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="cart-details">
-            <h4>Cart Details</h4>
-            <p>
-              Price : ₹{totalPrice}
-              <sup>00</sup>
-            </p>
-            <p>Item : {cartItems.length}</p>
-            <p>Discount : ₹100</p>
-            <p>
-              Final Price : ₹{totalPrice - 100}
-              <sup>00</sup>
-            </p>
-            <ToastContainer/>
-            <button>
-              <Link
-                to="/checkout"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                CHECKOUT
-              </Link>
-            </button>
+        <div>
+          <div className="Cart-container">
+            <ul className="cart-items">
+              {cartItems.map((item) => {
+                const { id, title, image, price, rating, qty } = item;
+                return (
+                  <li key={id}>
+                    <h3>{title}</h3>
+                    <p>₹ {price * qty}</p>
+                    <div>
+                      <button onClick={() => removeFromCart(item)}>
+                        <BsCartX style={{ marginBottom: "-2px" }} /> Remove from
+                        Cart
+                      </button>
+                      &nbsp;
+                      <button onClick={() => IncrementCartData(item)}>
+                        +1
+                      </button>
+                      <button style={{ border: "none", padding: "0 10px" }}>
+                        {qty ?? 1}
+                      </button>
+                      <button onClick={() => DecrementCartData(item)}>
+                        -1
+                      </button>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="cart-details">
+              <h4>Cart Details</h4>
+              <p>
+                Price : ₹{totalPrice}
+                <sup>00</sup>
+              </p>
+              <p>Item : {cartItems.length}</p>
+              <p>Discount : ₹100</p>
+              <p>
+                Final Price : ₹{totalPrice - 100}
+                <sup>00</sup>
+              </p>
+              <ToastContainer />
+              <button>
+                <Link
+                  to="/checkout"
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  CHECKOUT
+                </Link>
+              </button>
+            </div>
           </div>
         </div>
       ) : (
-        <h3>Your Cart is Empty {":("}</h3>
+        <div>
+          <br/>
+          <h2>Your Cart is Empty <PiSmileySadLight size={40} style={{marginBottom:"-0.7rem"}}/></h2>
+          <p>~Feels Like a Barren Desert </p>
+        </div>
       )}
     </div>
   );

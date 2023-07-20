@@ -40,20 +40,31 @@ export const products = [
       "https://cdn.shopify.com/s/files/1/0738/1409/products/ViennaRoast3_220422-15.jpg?v=1650948261&width=1024&height=768",
     rating: "5.0",
     price: "470.00",
-  },
-  {
+  },{
     _id: uuid(),
-    category: "Beverage",
-    title: "Society Coffee Premix Pouch",
-    desc: "Wake up and smell this premium instant coffee. You will fall in love with it instantly. First the strong aroma and then the refreshing sip..ahhh! And come to think of it all you have to do is just add hot water, stir and you're ready to indulge yourself.",
+    category: "Chocolate",
+    title: "My/Mochi Ice Cream, Cookies & Cream",
+    desc: "Cookies & Cream My/Mo Mochi Ice Cream is the perfect combination of rich, premium ice cream and crisp, chocolatey cookies wrapped in mushy, mochi dough. A new kind of yum in your handheld snack…because nobody craves same-old.",
     image:
-      "https://cdn.shopify.com/s/files/1/0590/8067/1386/products/SocietyCoffeePremix1KgPouch_700x.jpg?v=1652696168",
+      "https://m.media-amazon.com/images/I/71Te4kzoToS._SL1500_.jpg",
     thumbnail:
-      "https://cdn.shopify.com/s/files/1/0590/8067/1386/products/SocietyCoffeePremix1KgPouch_700x.jpg?v=1652696168",
-    rating: "5.0",
-    price: "383.00",
+      "https://m.media-amazon.com/images/I/71Te4kzoToS._SL1500_.jpg",
+    rating: "4.9",
+    price: "899.00",
   },
-  ,
+ {
+    _id: uuid(),
+    category: "Cake",
+    title: "Japanese Sponge Cake",
+    desc: "Kasutera is a traditional Japanese sponge cake made with sugar, flour, eggs, and starchy syrup. This Nagasaki specialty is raised solely by egg foam, with no added butter or oil, and has a soft, moist, and spongy texture. The cake is also known as Castella.",
+    image:
+      "https://cdn.tasteatlas.com/Images/Dishes/07c6b2fac6ab43d5b00ef5a72d084032.jpg?w=905&h=510",
+    thumbnail:
+      "https://cdn.tasteatlas.com/Images/Dishes/07c6b2fac6ab43d5b00ef5a72d084032.jpg?w=200&h=200",
+    rating: "4.5",
+    price: "750.00",
+  },
+  
   {
     _id: uuid(),
     category: "Beverage",
@@ -63,7 +74,7 @@ export const products = [
       "https://i0.wp.com/beewel.in/wp-content/uploads/2022/12/Robusta-Coffee-Beans-300-g-Front.jpg?fit=600%2C600&ssl=1",
     thumbnail:
       "https://i0.wp.com/beewel.in/wp-content/uploads/2022/12/Robusta-Coffee-Beans-300-g-Front.jpg?fit=600%2C600&ssl=1",
-    rating: "0.0",
+    rating: "5.0",
     price: "449.00",
   },
   {
@@ -73,21 +84,10 @@ export const products = [
     desc: "Strong & stimulating coffee mixed with a 38% dark chocolate truffle, layered onto cocoa cake sponges, covered and decorated with a fine chocolate truffle glaze with cocoa coffee bean.",
     image: "https://zukachocolates.com/storage/2021/03/46.jpg",
     thumbnail: "https://zukachocolates.com/storage/2021/03/46.jpg",
-    rating: "0.0",
+    rating: "4.6",
     price: "359.00",
   },
-  {
-    _id: uuid(),
-    category: "Cake",
-    title: "Japanese Sponge Cake",
-    desc: "Kasutera is a traditional Japanese sponge cake made with sugar, flour, eggs, and starchy syrup. This Nagasaki specialty is raised solely by egg foam, with no added butter or oil, and has a soft, moist, and spongy texture. The cake is also known as Castella.",
-    image:
-      "https://cdn.tasteatlas.com/Images/Dishes/07c6b2fac6ab43d5b00ef5a72d084032.jpg?w=905&h=510",
-    thumbnail:
-      "https://cdn.tasteatlas.com/Images/Dishes/07c6b2fac6ab43d5b00ef5a72d084032.jpg?w=200&h=200",
-    rating: "4.2",
-    price: "750.00",
-  },
+  
   {
     _id: uuid(),
     category: "Cake",
@@ -112,19 +112,19 @@ export const products = [
     rating: "4.3",
     price: "449.00",
   },
+  
   {
     _id: uuid(),
-    category: "Cake",
-    title: "Sernik: Polish cheesecake",
-    desc: "Sernik is a Cheesecake from Poland, stemming from old Christian and Jewish traditions. It is made with eggs, sugar, and twaróg - a type of curd cheese that has been used in desserts for hundreds of years. It is believed that sernik originated in the 17th century.",
+    category: "Beverage",
+    title: "Society Coffee Premix Pouch",
+    desc: "Wake up and smell this premium instant coffee. You will fall in love with it instantly. First the strong aroma and then the refreshing sip..ahhh! And come to think of it all you have to do is just add hot water, stir and you're ready to indulge yourself.",
     image:
-      "https://cdn.tasteatlas.com/Images/Dishes/63c5320b6ff94d81abfccc78f70d2dd5.jpg?w=905&h=510",
+      "https://cdn.shopify.com/s/files/1/0590/8067/1386/products/SocietyCoffeePremix1KgPouch_700x.jpg?v=1652696168",
     thumbnail:
-      "https://cdn.tasteatlas.com/Images/Dishes/63c5320b6ff94d81abfccc78f70d2dd5.jpg?w=200&h=200",
-    rating: "4.4",
-    price: "659.00",
+      "https://cdn.shopify.com/s/files/1/0590/8067/1386/products/SocietyCoffeePremix1KgPouch_700x.jpg?v=1652696168",
+    rating: "5.0",
+    price: "383.00",
   },
-  
   {
     _id: uuid(),
     category: "Cake",
@@ -182,7 +182,7 @@ export const products = [
       "https://cdn.shopify.com/s/files/1/0586/5429/4206/products/purple-haze-630596_1944x.jpg?v=1663919893",
     thumbnail:
       "https://cdn.shopify.com/s/files/1/0586/5429/4206/products/purple-haze-630596_1944x.jpg?v=1663919893",
-    rating: "4.0",
+    rating: "3.4",
     price: "395.00",
   },
   {
@@ -351,6 +351,41 @@ export const products = [
       "https://www.ketofy.in/wp-content/uploads/2019/04/Ketofy-Coffee-Cookies-Front-min-2-scaled.jpg",
     rating: "4.9",
     price: "200.00",
+  }, {
+    _id: uuid(),
+    category: "Chocolate",
+    title: "Vegan Dark Chocolate Sea Salt Gelato",
+    desc: "True chocoholics, get ready for our Vegan Dark Chocolate Sea Salt Gelato. Blend of creamy dark chocolate with a hint of contrasting sea salt, this flavour will blow your mind. It’s Dairy-free with no added sugar, this is truly a Vegan delight!",
+    image:
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQOXS6tP8U_3Jn-FpKlvVt1ZKIMZL_cE1RkDGjA-VOJKXK8TmY0VVCjdig0pH_-IyXtvg1gDy1fxeC5w8PA72jnzrWBXgg00A&usqp=CAY",
+    thumbnail:
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQOXS6tP8U_3Jn-FpKlvVt1ZKIMZL_cE1RkDGjA-VOJKXK8TmY0VVCjdig0pH_-IyXtvg1gDy1fxeC5w8PA72jnzrWBXgg00A&usqp=CAY",
+    rating: "5.0",
+    price: "500.00",
+  },
+  {
+    _id: uuid(),
+    category: "Chocolate",
+    title: "Green Girl Bakeshop Ice Cream Sandwich",
+    desc: "Creamy and milky Ice cream sandwiched between biscuits will definitely please your tastebuds. The amazing taste of milky ice cream between the biscuits makes it the tastiest ice cream of all time.",
+    image:
+      "https://cdn.dribbble.com/users/6251/screenshots/2514896/gg-ice-cream-sandwich-packaging-design2.jpg",
+    thumbnail:
+      "https://cdn.dribbble.com/users/6251/screenshots/2514896/gg-ice-cream-sandwich-packaging-design2.jpg",
+    rating: "4.9",
+    price: "1000.00",
+  },
+  {
+    _id: uuid(),
+    category: "Cake",
+    title: "Sernik: Polish cheesecake",
+    desc: "Sernik is a Cheesecake from Poland, stemming from old Christian and Jewish traditions. It is made with eggs, sugar, and twaróg - a type of curd cheese that has been used in desserts for hundreds of years. It is believed that sernik originated in the 17th century.",
+    image:
+      "https://cdn.tasteatlas.com/Images/Dishes/63c5320b6ff94d81abfccc78f70d2dd5.jpg?w=905&h=510",
+    thumbnail:
+      "https://cdn.tasteatlas.com/Images/Dishes/63c5320b6ff94d81abfccc78f70d2dd5.jpg?w=200&h=200",
+    rating: "4.1",
+    price: "659.00",
   },
   {
     _id: uuid(),
@@ -385,42 +420,9 @@ export const products = [
       "https://cdn.shopify.com/s/files/1/0464/2045/9669/products/5_be53d51e-786e-4b41-9092-f05b0d7a10e3_1000x.png?v=1668764901",
     thumbnail:
       "https://cdn.shopify.com/s/files/1/0464/2045/9669/products/5_be53d51e-786e-4b41-9092-f05b0d7a10e3_1000x.png?v=1668764901",
-    rating: "4.9",
+    rating: "3.0",
     price: "499.00",
-  },  {
-    _id: uuid(),
-    category: "Chocolate",
-    title: "Vegan Dark Chocolate Sea Salt Gelato",
-    desc: "True chocoholics, get ready for our Vegan Dark Chocolate Sea Salt Gelato. Blend of creamy dark chocolate with a hint of contrasting sea salt, this flavour will blow your mind. It’s Dairy-free with no added sugar, this is truly a Vegan delight!",
-    image:
-      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQOXS6tP8U_3Jn-FpKlvVt1ZKIMZL_cE1RkDGjA-VOJKXK8TmY0VVCjdig0pH_-IyXtvg1gDy1fxeC5w8PA72jnzrWBXgg00A&usqp=CAY",
-    thumbnail:
-      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQOXS6tP8U_3Jn-FpKlvVt1ZKIMZL_cE1RkDGjA-VOJKXK8TmY0VVCjdig0pH_-IyXtvg1gDy1fxeC5w8PA72jnzrWBXgg00A&usqp=CAY",
-    rating: "5.0",
-    price: "500.00",
-  },{
-    _id: uuid(),
-    category: "Chocolate",
-    title: "My/Mochi Ice Cream, Cookies & Cream",
-    desc: "Cookies & Cream My/Mo Mochi Ice Cream is the perfect combination of rich, premium ice cream and crisp, chocolatey cookies wrapped in mushy, mochi dough. A new kind of yum in your handheld snack…because nobody craves same-old.",
-    image:
-      "https://m.media-amazon.com/images/I/71Te4kzoToS._SL1500_.jpg",
-    thumbnail:
-      "https://m.media-amazon.com/images/I/71Te4kzoToS._SL1500_.jpg",
-    rating: "4.5",
-    price: "899.00",
-  },{
-    _id: uuid(),
-    category: "Chocolate",
-    title: "Green Girl Bakeshop Ice Cream Sandwich",
-    desc: "Creamy and milky Ice cream sandwiched between biscuits will definitely please your tastebuds. The amazing taste of milky ice cream between the biscuits makes it the tastiest ice cream of all time.",
-    image:
-      "https://cdn.dribbble.com/users/6251/screenshots/2514896/gg-ice-cream-sandwich-packaging-design2.jpg",
-    thumbnail:
-      "https://cdn.dribbble.com/users/6251/screenshots/2514896/gg-ice-cream-sandwich-packaging-design2.jpg",
-    rating: "4.8",
-    price: "1000.00",
-  },
+  }, 
 ];
 
 // {

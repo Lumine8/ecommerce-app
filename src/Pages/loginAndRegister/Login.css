@@ -1,0 +1,27 @@
+.LoginPage {
+  margin: auto;
+  padding-top: 4rem;
+}
+.loginInput input[type="password"], .loginInput
+input[type="text"] {
+  font-size: medium;
+  text-align: left;
+  max-width: 15rem;
+}
+.LoginPage button{
+    cursor: pointer;
+    background-color: transparent;
+    font-size: medium;
+    border: none;
+    padding: 10px;
+  
+}
+.LoginPage input {
+  font-size: large;
+  border: 1px solid;
+  max-width: 15rem;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  background-color: transparent;
+}

@@ -294,7 +294,8 @@ export function DataProvider({ children }) {
         );
         if (
           state?.cartData?.filter((items) => items._id === product._id)[0]
-            ?.qty === 1
+            ?.qty === 1 && state?.cartData?.filter((items) => items._id === product._id)[0]
+            ?.qty >= 1
         ) {
           deleteFromCart(product);
         }
@@ -326,6 +327,7 @@ export function DataProvider({ children }) {
 
   const resetCategory = () => {
     dispatch({ type: "RESET_FILTER", payload: state.categories });
+    getData()
   };
 
   const ratingFilter = (value) => {

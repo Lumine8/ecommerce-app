@@ -1,13 +1,18 @@
 input[type=range] {
-    background-color: #FCF4EA;
+    background-color: transparent;
     height: 20px;
     -webkit-appearance: none;
     margin: 10px 0;
     width: 100%;
   }
-  input[type=range]:focus {
-    outline: none;
+
+  input[type=radio]{
+    background-color: transparent;
+    margin: 5px 0;
+    accent-color: #FFE08C;
+    border: 1px solid;
   }
+
   input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 2px;

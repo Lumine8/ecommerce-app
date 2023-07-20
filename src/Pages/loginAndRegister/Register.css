@@ -1,0 +1,26 @@
+.RegisterPage button{
+    cursor: pointer;
+    font-weight: bold;
+    background-color: transparent;
+    font-size: medium;
+    border: none;
+    padding: 10px;
+    color: black;
+  
+}
+.RegisterPage input {
+  font-size: large;
+  border: 1px solid;
+  max-width: 15rem;
+  margin: 2rem 1rem;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  background-color: transparent;
+}
+
+.registerForm{
+    margin: 1rem auto;
+    justify-content: center;
+    display: flex;
+}

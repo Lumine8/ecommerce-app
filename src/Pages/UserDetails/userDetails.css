@@ -1,41 +1,61 @@
 #userdetails{
-    margin-top: 10rem;
+    padding-top: 7rem;
+    /* height: 100%;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-image: 
+    linear-gradient(
+        rgba(248, 245, 245, 0.878),
+        rgb(62, 62, 62)
+      ),
+      url("https://images.unsplash.com/photo-1537887247075-ce74c14bcd9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80");
+    background-size: cover;
+    padding-bottom: 17.7rem; */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+/* 
+.UserProfile{
+
+} */
+
+#userdetails button{
+  cursor: pointer;
+  background-color: transparent;
+  font-size: medium;
+  padding: 20px;
 }
 
-/* input, label {
+#userdetails input{
+  font-size: large;
+  border: 1px solid;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  background-color: transparent;
+  margin-bottom: 10rem;
+}
+
+.addresses li{
+  background-color: rgba(129, 129, 129, 0.467);
+  border: 2px solid rgba(249, 189, 112, 0.529);
+  width: 50%;
+  margin: 10px 10rem;
+  font-weight: bold;
+  padding: 15px;
+
+}
+
+#userdetails input, label {
     margin: 5px 5px;
   }
   
   .form-group {
-    margin: 30px auto;
+    margin: 2rem auto;
     width: 450px;
+    display: grid;
+    grid-template-columns: repeat(2,2fr);
+
   }
+
   
-  .form-control {
-    float: left;
-  }
-  
-  #inputStreet {
-    width: 100%;
-  }
-  
-  #inputCity {
-    width: 50%;
-  }
-  
-  #inputState {
-    width: 15%;
-  }
-  
-  #inputZip {
-    width: 28%;
-  }
-  
-  #inputCounty {
-    width: 45%;
-  }
-  
-  #inputCountry {
-    width: 50%;
-  }
-   */

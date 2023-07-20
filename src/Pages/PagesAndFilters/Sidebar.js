@@ -15,7 +15,7 @@ export default function Sidebar({ props }) {
   const { sortBy, ratingBy } = filters;
 
   return (
-    <div className="side-bar">
+    <div className="side-bar" style={{textAlign:"left", fontWeight:"bold"}}>
       <h2>Filter by</h2>
       <div>
         <input
@@ -96,10 +96,10 @@ export default function Sidebar({ props }) {
           max="5"
           value={ratingBy}
         />
-        <label>Rating: <span>{ratingBy}</span></label>
+        <p style={{textAlign:"center"}}>Rating: <span>{ratingBy}</span></p>
       </div>
       <div style={{paddingBottom:"1rem"}}></div>
-      <p onClick={resetCategory}>Reset Filters</p>
+      <p onClick={resetCategory} style={{textAlign:"center"}}>Reset Filters</p>
     </div>
   );
 }

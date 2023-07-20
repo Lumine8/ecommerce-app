@@ -1,4 +1,6 @@
 import { useContext } from "react";
+import {PiHandHeartThin} from "react-icons/pi"
+import {PiSmileySadLight} from "react-icons/pi"
 import { BsFillHeartbreakFill } from "react-icons/bs";
 
 import ProductCard from "./Subpages/Product/ProductCard";
@@ -38,16 +40,16 @@ export default function Wishlist() {
     deleteFromWishlist(item)
   }
   return (
+    <div id="wishList">
     <div className="wishlist-container">
-      <h1>Your Wishlist</h1>
-      
+      <h1> <PiHandHeartThin size={50} style={{marginBottom:"-0.9rem"}}/> WISHLIST</h1>
       {wishlistItems.length ? (
         <ul>
           {wishlistItems.map((item) => {
-            const { _id, title, image, price, rating } = item;
+            const { _id : id, title, image, price, rating } = item;
             return (
-              <li key={_id}>
-                <ProductCard props={{ _id, title, image, price, rating }} />{" "}
+              <li key={id}>
+                <ProductCard props={{ id, title, image, price, rating }} />{" "}
                 <div className="buttons ">
                   <button onClick={() => deleteWishlistItem(item)}>
                     <BsFillHeartbreakFill style={{ marginBottom: "-3px" }} />
@@ -62,10 +64,11 @@ export default function Wishlist() {
         </ul>
       ) : (
         <div>
-        <h3>Your Wishlist is Empty {":("}</h3>
+        <h2>Your Wishlist is Empty <PiSmileySadLight size={40} style={{marginBottom:"-0.7rem"}}/></h2>
         <ToastContainer/>
         </div>
       )}
+      </div>
     </div>
   );
 }

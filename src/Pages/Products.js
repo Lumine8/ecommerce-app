@@ -63,7 +63,7 @@ export default function Products() {
   ) : state.error === true ? (
     <ErrorPage/>
   ) : (
-    <div id="container">
+    <div id="container" className="productspage">
       <h1>ALL PRODUCTS</h1>
 
       <Pagination

@@ -1,7 +1,16 @@
 #loading{
-    position: absolute;
-    top: 20%;
-    left: 50%;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  background-image: 
+  linear-gradient(
+      rgba(248, 245, 245, 0.878),
+      rgb(62, 62, 62)
+    ),
+    url("https://images.unsplash.com/photo-1538052057220-c48d94360275?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80");
+  background-size: cover;
+  display: grid;
+  place-items: center; /* Center both horizontally and vertically */
+  height: 100vh;
 }
 
 .loader {
@@ -13,7 +22,7 @@
   }
   
   .loader .circle {
-    --color: #333;
+    --color: #ebf4f2;
     --dim: 1.2rem;
     width: var(--dim);
     height: var(--dim);
