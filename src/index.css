@@ -26,6 +26,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/***********Scroll bar *******************/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgb(62, 62, 62); 
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+  -webkit-box-shadow: inset 0 0 6px rgb(174, 173, 172); 
+}
+
+/**************Scroll bar Ends here*****************/
+
+
 .navbar-container {
   background: rgba(106, 106, 106, 0);
   backdrop-filter: blur(10px);

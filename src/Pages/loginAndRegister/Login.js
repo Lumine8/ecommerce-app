@@ -67,11 +67,11 @@ export default function Login() {
       )}
       </div>
       <br />
-      <button onClick={clickHandler}>Submit</button>
-      <Link style={{textDecoration:"none", color:"black"}} to="/register">Register</Link>
+      <button onClick={clickHandler}>Submit</button>/
+      <button><Link style={{textDecoration:"none", color:"black"}} to="/register">Register</Link></button>
 
       <div>
-        Sign in as <button onClick={guestSignin}>Guest</button>
+        Sign in as <span onClick={guestSignin} style={{fontWeight:"bold", cursor:"pointer"}}>Guest</span>
       </div>
     </div>
   );

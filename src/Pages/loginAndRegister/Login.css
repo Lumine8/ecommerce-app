@@ -1,6 +1,9 @@
 .LoginPage {
   margin: auto;
-  padding-top: 4rem;
+  max-width: 30%;
+  background-color: rgba(129, 129, 129, 0.286);
+  border-radius: 10px;
+  border:1px solid rgba(129, 129, 129, 0.286);
 }
 .loginInput input[type="password"], .loginInput
 input[type="text"] {
